@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>Blablabla</title>
+		<style type="text/css">
+			.topic_div {
+			height: 30px;
+			border-bottom: 3px solid #000000;
+			clear: both;
+			}
+			
+			.main_row {
+			width: 150px;
+			height: 20px;
+			float: left;
+			}
+
+			#info_div {
+			border-left: 1px solid #000000;
+			clear: both;
+			}
+
+			.info_row {
+			width: 150px;
+			height: 20px;
+			float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="topic_div">
+			<div class="main_row">Efternamn, Förnamn</div>
+			<div class="main_row">E-post</div>
+			<div class="main_row">Program</div>
+			<div class="main_row">Adress</div>
+			<div class="main_row">Ort</div>
+			<div class="main_row">Telefon (hem/mobil)</div>
+			<div class="main_row">LiU ID</div>
+			<div class="main_row">Aktiv</div>
+		</div>
+		<div id="info_div">
+			{% for m in members %}
+			<div class="info_row"><a href="/member/{{ m.id }}">{{ m.surname }}, {{ m.firstname }}</a></div>
+			<div class="info_row">{{ m.email }}</div>
+			<div class="info_row">{{ m.edu }}</div>
+			<div class="info_row">{{ m.address }}</div>
+			<div class="info_row">{{ m.city }}</div>
+			<div class="info_row">{{ m.phone_home }}/{{ m.phone_cell }}</div>
+			<div class="info_row">{{ m.liu_id }}</div>
+			<div class="info_row">{{ m.active_member }}</div>
+			<div style="clear: both;"></div>
+			{% endfor %}			
+		</div>
+	</body>
+</html>
